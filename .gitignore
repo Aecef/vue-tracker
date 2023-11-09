@@ -26,3 +26,10 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# environment variables
+.env.local
+.env.development
+.env.test.local
+.env.production.local
+.env

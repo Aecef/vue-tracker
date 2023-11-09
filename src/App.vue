@@ -1,16 +1,16 @@
 <script setup>
 import { onMounted } from 'vue';
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import HelloWorld from '@components/HelloWorld.vue'
+import TheWelcome from '@components/TheWelcome.vue'
+import pb from '@components/PocketBase'
 import PocketBase from 'pocketbase'
 
-let pb = null
+console.log(import.meta.env.VITE_ADMIN_EMAIL);
+console.log(import.meta.env.VITE_ADMIN_PASSWORD);
 
 onMounted (async () => {
-  pb = new PocketBase('https://pocketbase-chh.fly.dev');
-
   const authData = await pb.admins
-    .authWithPassword('aleccleofe@gmail.com', '4rweqmdd4849!');
+    .authWithPassword(import.meta.env.VITE_ADMIN_EMAIL, import.meta.env.VITE_ADMIN_PASSWORD);
   const data = await pb.collection('users').getFullList().catch((err) => { console.log(err); });
 
   console.log(pb.authStore.isValid);
