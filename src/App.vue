@@ -3,6 +3,7 @@ import { onMounted } from 'vue';
 import HelloWorld from '@components/HelloWorld.vue'
 import TheWelcome from '@components/TheWelcome.vue'
 import pb from '@components/PocketBase'
+import LinePlot from '@components/LinePlot.vue';
 
 
 onMounted (async () => {
@@ -21,15 +22,10 @@ onMounted (async () => {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <LinePlot />  
   </main>
 </template>
 
