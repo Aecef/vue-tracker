@@ -4,6 +4,7 @@ import HelloWorld from '@components/HelloWorld.vue'
 import TheWelcome from '@components/TheWelcome.vue'
 import pb from '@components/PocketBase'
 import LinePlot from '@components/LinePlot.vue';
+import StaggeredGrid from '@components/StaggeredGrid.vue';
 
 
 onMounted (async () => {
@@ -21,12 +22,7 @@ onMounted (async () => {
 </script>
 
 <template>
-  <header>
-  </header>
-
-  <main>
-    <LinePlot />  
-  </main>
+    <StaggeredGrid />  
 </template>
 
 <style scoped>
