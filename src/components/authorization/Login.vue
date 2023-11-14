@@ -7,7 +7,7 @@ export default {
     name: 'Login',
     data() {
         return {
-            loggedIn: ref(false),
+            loggedIn: false,
             username: '',
             password: ''
         }
@@ -27,7 +27,13 @@ export default {
         async logout() {
             pb.authStore.clear();
             this.loggedIn = false;
+        },
+        isLoggedIn() {
+            return this.loggedIn;
         }
+    },
+    mounted() {
+        this.$refs.username.focus();
     }
 }
 
@@ -35,9 +41,9 @@ export default {
 </script>
 
 <template>
-    <div class="login">
+    <div class="login" @click="$emit('click')">
         <!--Create input fieds to submit login info -->
-        <input type="text" placeholder="Username" v-model="username">
+        <input type="text" placeholder="Username" v-model="username" ref="username">
         <input type="password" placeholder="Password" v-model="password">
         <button @click="login">Login</button>
 
