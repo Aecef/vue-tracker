@@ -14,7 +14,7 @@ onMounted (async () => {
 
   const data = await pb.collection('users').getFullList().catch((err) => { console.log(err); });
 
-  console.log(pb.authStore.isValid);
+  //console.log(pb.authStore.isValid);
   //console.log(data);
   
   pb.authStore.clear();
@@ -27,6 +27,7 @@ onMounted (async () => {
 
     <router-link to="/home">Home</router-link>
     <router-link to="/about">About</router-link>
+    <router-link to="/dogsfed">Dogs Fed</router-link>
     
   </div>
   <div class="container">
