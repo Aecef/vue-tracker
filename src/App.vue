@@ -14,7 +14,7 @@ onMounted (async () => {
 
   const data = await pb.collection('users').getFullList().catch((err) => { console.log(err); });
 
-  //console.log(pb.authStore.isValid);
+  console.log(pb.authStore.isValid);
   //console.log(data);
   
   pb.authStore.clear();
@@ -22,7 +22,16 @@ onMounted (async () => {
 </script>
 
 <template>
-    <StaggeredGrid />  
+  <br>
+  <div id="nav">
+
+    <router-link to="/home">Home</router-link>
+    <router-link to="/about">About</router-link>
+    
+  </div>
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
 
 <style scoped>
