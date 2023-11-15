@@ -14,8 +14,10 @@ export default {
         clickLogin() {
             console.log('clicked login');
             console.log(this.auth);
-            this.auth = this.$refs.login.isLoggedIn();
-            console.log(this.auth);
+            setTimeout(() => {
+                this.auth = this.$refs.login.isLoggedIn();
+                console.log(this.auth);
+            }, 100);
         }
     },
     components: {
@@ -28,7 +30,7 @@ export default {
 <template>
     <div class="dogsfed">
         <h1>Dogs Fed</h1>
-        <Login @click="clickLogin" ref="login"/>
+        <Login @change="clickLogin" ref="login"/>
         <h2>
 
             {{ this.auth }}

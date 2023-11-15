@@ -19,14 +19,16 @@ export default {
                 .catch((err) => { console.log(err); })
             if (pb.authStore.isValid){
                 this.loggedIn = true;
+                this.$emit('change');
+                console.log(authData);
             } else {
                 this.loggedIn = false;
             }
-            console.log(authData);
         },
         async logout() {
             pb.authStore.clear();
             this.loggedIn = false;
+            this.$emit('change');
         },
         isLoggedIn() {
             return this.loggedIn;
@@ -41,14 +43,18 @@ export default {
 </script>
 
 <template>
-    <div class="login" @click="$emit('click')">
+    <div class="login">
         <!--Create input fieds to submit login info -->
         <input type="text" placeholder="Username" v-model="username" ref="username">
         <input type="password" placeholder="Password" v-model="password">
         <button @click="login">Login</button>
+        <!-- Emit change after the login button was clicked -->
+        
+
 
         <!-- Create log out button -->
         <button v-if="loggedIn" @click="logout">Logout</button>
+        
 
         <!-- Display login status -->
         <p v-if="loggedIn">Logged In</p>
