@@ -18,12 +18,12 @@ export default {
             await this.timeout(100);
             //wait for login to be processed
             this.auth = this.$refs.login.isLoggedIn();
-            console.log(this.auth);
+            //console.log(this.auth);
             
             //reroute to home page if logged in
             if (this.auth) {
                 const authData = await pb.collection('users').authRefresh();
-                console.log(authData);
+                //console.log(authData);
                 this.$router.push('/Account/' + authData.record.id);
             }
 
@@ -40,10 +40,5 @@ export default {
     <div class="dogsfed">
         <h1>Dogs Fed</h1>
         <Login @change="clickLogin" ref="login"/>
-        <h2>
-
-            {{ this.auth }}
-
-        </h2>
     </div>
 </template>
