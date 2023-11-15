@@ -12,11 +12,16 @@ export default {
     },
     methods: {
         clickLogin() {
-            console.log('clicked login');
-            console.log(this.auth);
+            //wait for login to be processed
             setTimeout(() => {
                 this.auth = this.$refs.login.isLoggedIn();
                 console.log(this.auth);
+                
+                //reroute to home page if logged in
+                if (this.auth) {
+                    console.log('logged in');
+                    this.$router.push('/Home');
+                }
             }, 100);
         }
     },

@@ -20,7 +20,6 @@ export default {
             if (pb.authStore.isValid){
                 this.loggedIn = true;
                 this.$emit('change');
-                console.log(authData);
             } else {
                 this.loggedIn = false;
             }
