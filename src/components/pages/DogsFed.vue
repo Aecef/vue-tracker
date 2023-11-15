@@ -2,6 +2,7 @@
 import Login from '@components/authorization/Login.vue';
 import {queuePostFlushCb, ref, watch} from 'vue';
 import pb from '@components/Pocketbase';
+import { timeout } from '@util/Timing';
 
 export default {
     name: 'DogsFed',
@@ -11,11 +12,8 @@ export default {
         }
     },
     methods: {
-        timeout(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        },
         async clickLogin() {
-            await this.timeout(100);
+            await timeout(100);
             //wait for login to be processed
             this.auth = this.$refs.login.isLoggedIn();
             //console.log(this.auth);

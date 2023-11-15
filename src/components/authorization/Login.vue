@@ -1,7 +1,6 @@
 <script>
 
 import pb from '@components/Pocketbase';
-import { ref } from 'vue';
 
 export default {
     name: 'Login',

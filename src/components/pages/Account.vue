@@ -1,5 +1,6 @@
 <script>
 import pb from '@components/Pocketbase';
+import { timeout } from '@util/Timing';
 
 export default {
     name: 'Account',
@@ -18,7 +19,7 @@ export default {
     mounted() {
         try{
             this.checkAccount();
-            this.timeout(100);
+            timeout(100);
             this.getWeights();
         } catch (err) {
             console.log("rerouting to error page");
@@ -26,15 +27,14 @@ export default {
         }
     },
     methods: {
-        timeout(ms){
-            return new Promise(resolve => setTimeout(resolve, ms));
-        },
+        // Check if the account is valid and the page corresponds to the current auth user
         async checkAccount() {
             const authData = await pb.collection('users').authRefresh();
             const account = this.id == authData.record.id ? true : false;
             this.accountInfo = authData.record;
             this.validAccount = account;
         },
+        // Get the weights from the database and store them in this.weights related to the current user
         async getWeights() {
             const userData = await pb.collection('weights').getFullList();
             userData.forEach(entry => {
