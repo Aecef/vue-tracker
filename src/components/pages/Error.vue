@@ -3,7 +3,7 @@ export default {
     name: 'Error',
     data() {
         return {
-            errorMessage: null
+            errorMessage: ""
         }
     },
     computed: {
@@ -12,7 +12,7 @@ export default {
         }
     },
     mounted() {
-        this.errorMessage = error();
+        this.errorMessage = this.error;
     }
 }
 </script>

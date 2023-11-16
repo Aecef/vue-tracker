@@ -16,6 +16,9 @@ export default defineConfig({
         new URL("./src/components/pages", import.meta.url)
       ),
       "@util": fileURLToPath(new URL("./src/components/util", import.meta.url)),
+      "@authorization": fileURLToPath(
+        new URL("./src/components/authorization", import.meta.url)
+      ),
     },
   },
 });

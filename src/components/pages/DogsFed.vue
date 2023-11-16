@@ -8,7 +8,7 @@ export default {
     name: 'DogsFed',
     data() {
         return {
-            auth: ref(false)
+            auth: ref(false),
         }
     },
     methods: {

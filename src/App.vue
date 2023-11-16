@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import { onMounted } from 'vue';
 import HelloWorld from '@components/HelloWorld.vue'
 import TheWelcome from '@components/TheWelcome.vue'
@@ -7,29 +7,40 @@ import LinePlot from '@components/LinePlot.vue';
 import StaggeredGrid from '@components/StaggeredGrid.vue';
 
 
-onMounted (async () => {
+    //.authWithPassword(import.meta.env.VITE_ADMIN_EMAIL, import.meta.env.VITE_ADMIN_PASSWORD);
 
-  const authData = await pb.admins
-    .authWithPassword(import.meta.env.VITE_ADMIN_EMAIL, import.meta.env.VITE_ADMIN_PASSWORD);
-
-  const data = await pb.collection('users').getFullList().catch((err) => { console.log(err); });
-
-  //console.log(pb.authStore.isValid);
-  //console.log(data);
-  
-  pb.authStore.clear();
-});
+export default {
+  name: 'App',
+  components: {
+    HelloWorld,
+    TheWelcome,
+    LinePlot,
+    StaggeredGrid
+  },
+  data() {
+    return {
+      navPages: [
+        { name: 'Home', path: '/home' },
+        { name: 'About', path: '/about' },
+        { name: 'Dogs Fed', path: '/dogsfed' }
+      ],
+    }
+  }
+}
 </script>
 
 <template>
   <br>
   <div id="nav">
-
-    <router-link to="/home">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/dogsfed">Dogs Fed</router-link>
-    
+    <div class="row">
+      <!-- Create a router link for each item in navPages -->
+      <div class="col" v-for="page in navPages" :key="page.name">
+        <router-link :to="page.path" class="">{{ page.name }}</router-link>
+      </div>
+      
+    </div>
   </div>
+
   <div class="container">
     <router-view></router-view>
   </div>

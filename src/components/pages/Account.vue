@@ -1,19 +1,24 @@
 <script>
 import pb from '@components/Pocketbase';
 import { timeout } from '@util/Timing';
+import { isLoggedIn } from '@authorization/LoginOptions';
+import { ref } from 'vue';
 
 export default {
     name: 'Account',
     data() {
         return {
-            validAccount: false,
+            validAccount: ref(false),
             weights: [],
-            accountInfo: {}
+            accountInfo: {},
         }
     },
     computed: {
         id() {
             return this.$route.params.id;
+        },
+        loggedIn() {
+            return isLoggedIn();
         }
     },
     mounted() {
@@ -23,7 +28,7 @@ export default {
             this.getWeights();
         } catch (err) {
             console.log("rerouting to error page");
-            this.$router.push('/Error/' + err);
+            this.$router.push('/Error/' + err.replace(/\s+/g, ''));
         }
     },
     methods: {
@@ -43,6 +48,10 @@ export default {
             console.log(this.weights);
             }
         },
+        async logout() {
+            pb.authStore.clear();
+            this.$router.push('/DogsFed');
+        }
 }
 </script>
 
@@ -56,5 +65,7 @@ export default {
             <p>{{ weight.weight }}</p>
             <p>{{ weight.date }}</p>
         </div>
-    </div>
+        <!-- Create log out button -->
+        <button v-if="loggedIn" @click="logout">Logout</button>
+        </div>
 </template>
