@@ -7,5 +7,5 @@ export async function logout() {
 
 export async function isLoggedIn() {
   const authData = await pb.collection("users").authRefresh();
-  return pb.authStore.isValid();
+  return authData.isValid();
 }
