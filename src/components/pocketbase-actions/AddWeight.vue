@@ -5,22 +5,33 @@ import { isLoggedIn } from '@authorization/LoginOptions';
 export default{
     name: 'AddWeight',
     props: {
-        id: String,
-        weight: Number,
+        userID: String,
         date: Date,
+        weight: Number,
+        etc: Object,
     },
-    mounted() {
+    setup() {
         if (!isLoggedIn()) {
             this.$router.push('/Login');
         }
+        console.log("AddWeight Setup");
+    },
+    mounted() {
+        console.log("AddWeight Mounted");
+        const data = {
+            weight: this.weight,
+            date: this.date,
+            etc: null,
+            user: this.userID,
+        }
+        this.submitWeight(data);
     },
     methods: {
-        async getCollection() {
-            const userData = await pb.collection('weights').getFullList();
-            userData.forEach(entry => {
-                this.weights.push({weight: entry.weight, date: entry.date});
-            });
-            console.log(this.weights);
+        async submitWeight(data){
+            console.log("Submitting Weight");
+            console.log(data);
+            await pb.collection('weights').create(data);
+            console.log("Submitted");
         },
     },
 }
@@ -29,6 +40,6 @@ export default{
 
 <template>
     <div class="AddWeight">
-        <h1>Add Weight</h1>
+        <h1>Weight Added</h1>
     </div>
 </template>

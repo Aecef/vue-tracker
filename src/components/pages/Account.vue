@@ -3,6 +3,7 @@ import pb from '@components/Pocketbase';
 import { timeout } from '@util/Timing';
 import { isLoggedIn } from '@authorization/LoginOptions';
 import { ref } from 'vue';
+import AddWeight from '../pocketbase-actions/AddWeight.vue';
 
 // Accessed by /Account/:id
 
@@ -32,6 +33,9 @@ export default {
             console.log("rerouting to error page");
             this.$router.push('/Error/' + err.replace(/\s+/g, ''));
         }
+    },
+    components: {
+        AddWeight,
     },
     methods: {
         // Check if the account is valid and the page corresponds to the current auth user
@@ -69,5 +73,8 @@ export default {
         </div>
         <!-- Create log out button -->
         <button v-if="loggedIn" @click="logout">Logout</button>
-        </div>
+
+        <!-- Add a weight with random props -->
+        <AddWeight :userID="this.id" :date="new Date()" :weight="350" :etc="null"/>
+    </div>
 </template>
