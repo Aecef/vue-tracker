@@ -4,6 +4,8 @@ import { timeout } from '@util/Timing';
 import { isLoggedIn } from '@authorization/LoginOptions';
 import { ref } from 'vue';
 
+// Accessed by /Account/:id
+
 export default {
     name: 'Account',
     data() {
