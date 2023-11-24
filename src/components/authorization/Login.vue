@@ -45,10 +45,7 @@ export default {
         <!--Create input fieds to submit login info -->
         <input type="text" placeholder="Username" v-model="username" ref="username">
         <input type="password" placeholder="Password" v-model="password">
-        <button @click="login">Login</button>
-        <!-- Emit change after the login button was clicked -->
-        
-
+        <button @click="login">Login</button>        
 
         <!-- Create log out button -->
         <button v-if="loggedIn" @click="logout">Logout</button>

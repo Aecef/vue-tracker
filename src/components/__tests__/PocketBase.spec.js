@@ -8,7 +8,7 @@ describe("PocketBase.js", () => {
   });
 });
 describe("PocketBase Account Actions", () => {
-  test("Login and Logout", async () => {
+  test("User Login", async () => {
     const authData = await pb
       .collection("users")
       .authWithPassword(
@@ -16,6 +16,8 @@ describe("PocketBase Account Actions", () => {
         import.meta.env.VITE_WEB_PASSWORD
       );
     expect(pb.authStore.isValid).toBe(true);
+  });
+  test("User Logout", async () => {
     pb.authStore.clear();
     expect(pb.authStore.isValid).toBe(false);
   });

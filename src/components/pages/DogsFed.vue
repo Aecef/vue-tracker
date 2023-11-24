@@ -16,8 +16,7 @@ export default {
             await timeout(100);
             //wait for login to be processed
             this.auth = this.$refs.login.isLoggedIn();
-            //console.log(this.auth);
-            
+                        
             //reroute to home page if logged in
             if (this.auth) {
                 const authData = await pb.collection('users').authRefresh();
@@ -28,7 +27,7 @@ export default {
         }
     },
     components: {
-        Login
+        Login,
     },
 }
 

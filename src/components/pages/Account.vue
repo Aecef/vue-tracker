@@ -14,6 +14,7 @@ export default {
             validAccount: ref(false),
             weights: [],
             accountInfo: {},
+            authUser: {},
         }
     },
     computed: {
@@ -41,6 +42,7 @@ export default {
         // Check if the account is valid and the page corresponds to the current auth user
         async checkAccount() {
             const authData = await pb.collection('users').authRefresh();
+            this.authUser = authData.record;
             const account = this.id == authData.record.id ? true : false;
             this.accountInfo = authData.record;
             this.validAccount = account;
@@ -57,7 +59,7 @@ export default {
         async logout() {
             pb.authStore.clear();
             this.$router.push('/DogsFed');
-        }
+        },
 }
 </script>
 
@@ -73,8 +75,9 @@ export default {
         </div>
         <!-- Create log out button -->
         <button v-if="loggedIn" @click="logout">Logout</button>
-
-        <!-- Add a weight with random props -->
-        <AddWeight :userID="this.id" :date="new Date()" :weight="350" :etc="null"/>
+        <!-- Create add weight component -->
+        <AddWeight :userID="this.id"/>
+        
+        
     </div>
 </template>
