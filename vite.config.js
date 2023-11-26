@@ -19,6 +19,10 @@ export default defineConfig({
       "@authorization": fileURLToPath(
         new URL("./src/components/authorization", import.meta.url)
       ),
+      "~bootstrap": fileURLToPath(
+        new URL("./node_modules/bootstrap", import.meta.url)
+      ),
+      "~App": fileURLToPath(new URL("./App.vue", import.meta.url)),
     },
   },
 });
