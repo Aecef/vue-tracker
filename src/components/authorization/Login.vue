@@ -41,11 +41,24 @@ export default {
 </script>
 
 <template>
-    <div class="login">
+    <div class="login container text-center">
         <!--Create input fieds to submit login info -->
-        <input type="text" placeholder="Username" v-model="username" ref="username">
-        <input type="password" placeholder="Password" v-model="password">
-        <button @click="login">Login</button>        
+        <div class="row p-2">
+            <div class="col"></div>
+            <input class="col" type="text" placeholder="Username" v-model="username" ref="username">
+            <div class="col"></div>
+        </div>
+        <div class="row p-2">
+            <div class="col"></div>
+            <input class="col" type="password" placeholder="Password" v-model="password">
+            <div class="col"></div>
+        </div>
+        <div class="row p-2">
+            <div class="col"></div>
+            <button class="btn btn-outline-primary col" type="submit" @click="login">Login</button>        
+            <div class="col"></div>
+        </div>
+        
 
         <!-- Create log out button -->
         <button v-if="loggedIn" @click="logout">Logout</button>

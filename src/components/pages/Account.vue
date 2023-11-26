@@ -2,7 +2,7 @@
 import pb from '@components/Pocketbase';
 import { timeout } from '@util/Timing';
 import { isLoggedIn } from '@authorization/LoginOptions';
-import { ref } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 import AddWeight from '../pocketbase-actions/AddWeight.vue';
 
 // Accessed by /Account/:id
@@ -12,7 +12,7 @@ export default {
     data() {
         return {
             validAccount: ref(false),
-            weights: [],
+            weights: ref([]),
             accountInfo: {},
             authUser: {},
         }
@@ -46,14 +46,16 @@ export default {
             const account = this.id == authData.record.id ? true : false;
             this.accountInfo = authData.record;
             this.validAccount = account;
+            console.log("Account Checked");
         },
         // Get the weights from the database and store them in this.weights related to the current user
         async getWeights() {
+            this.weights = [];
             const userData = await pb.collection('weights').getFullList();
             userData.forEach(entry => {
                 this.weights.push({weight: entry.weight, date: entry.date});
             });
-            console.log(this.weights);
+            console.log("Weights Retrieved");
             }
         },
         async logout() {
@@ -64,7 +66,7 @@ export default {
 </script>
 
 <template>
-    <div class="Account">
+    <div class="Account text-center">
         <h1>Account {{ this.accountInfo.username }}</h1>
         <br/>
         <h2 v-if="validAccount">Valid Account</h2>
@@ -73,11 +75,14 @@ export default {
             <p>{{ weight.weight }}</p>
             <p>{{ weight.date }}</p>
         </div>
-        <!-- Create log out button -->
-        <button v-if="loggedIn" @click="logout">Logout</button>
+
         <!-- Create add weight component -->
-        <AddWeight :userID="this.id"/>
+        <div class="flex-nowrap m-2">
+            <AddWeight :userID="this.id" @submitWeight="getWeights"/>
+        </div>
         
+        <!-- Create log out button -->
+        <button class="btn btn-outline-primary "  v-if="loggedIn" @click="logout">Logout</button>
         
     </div>
 </template>

@@ -8,6 +8,7 @@ export default{
     props: {
         userID: String,
     },
+    emits: ['submitWeight'],
     data() {
         return {
             date: new Date(),
@@ -16,11 +17,16 @@ export default{
             submitted: ref(false),
         }
     },
-    setup() {
+    setup(props, context) {
         if (!isLoggedIn()) {
             this.$router.push('/Login');
         }
         console.log("AddWeight Setup");
+
+        const submitWeight = () => {
+            context.emit('submitWeight');
+        }
+        return { submitWeight };
     },
     methods: {
         async submitWeight(){
@@ -35,6 +41,7 @@ export default{
             });
             this.submitted = true;
             console.log("Weight Submitted");
+            this.submitWeight();
         },
     },
 }
@@ -42,11 +49,14 @@ export default{
 </script>
 
 <template>
-    <div class="AddWeight">
-        <!-- Add input fields to submit weight -->
-        <input type="number" placeholder="Weight" v-model="weight">
-        <input type="date" placeholder="Date" v-model="date">
-        <button @click="submitWeight">Submit</button>    
-        <h1 v-if="submitted">Weight Added</h1>
+    <!-- Add input fields to submit weight -->
+    <div class="AddWeight input-group mb-3">
+        <input type="number" class="form-control" placeholder="Weight" v-model="weight">
     </div>
+    <div class="AddWeight input-group mb-3">
+        <input type="date" class="form-control" placeholder="Date" v-model="date">
+    </div>
+    <button class="btn btn-outline-primary col" @click="submitWeight">Submit</button>    
+    
+    <!-- <h1 v-if="submitted">Weight Added</h1> -->
 </template>
