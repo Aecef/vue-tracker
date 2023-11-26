@@ -64,8 +64,10 @@ export default {
         <button v-if="loggedIn" @click="logout">Logout</button>
         
 
-        <!-- Display login status -->
+        <!-- Display login status
         <p v-if="loggedIn">Logged In</p>
         <p v-if="!loggedIn">Not Logged In</p>
+         -->
+
     </div>
 </template>

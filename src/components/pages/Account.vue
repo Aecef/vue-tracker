@@ -25,6 +25,12 @@ export default {
             return isLoggedIn();
         }
     },
+    setup() {
+        if (!isLoggedIn()) {
+            this.$router.push('/DogsFed');
+        }
+
+    },
     mounted() {
         try{
             this.checkAccount();
@@ -53,15 +59,15 @@ export default {
             this.weights = [];
             const userData = await pb.collection('weights').getFullList();
             userData.forEach(entry => {
-                this.weights.push({weight: entry.weight, date: entry.date});
+                this.weights.push({weight: entry.weight, date: new Date(entry.date).toDateString()});
             });
             console.log("Weights Retrieved");
-            }
         },
         async logout() {
             pb.authStore.clear();
             this.$router.push('/DogsFed');
         },
+    }
 }
 </script>
 
@@ -71,9 +77,9 @@ export default {
         <br/>
         <h2 v-if="validAccount">Valid Account</h2>
         <!-- For Each element in this.weights create a div -->
-        <div v-for="weight in weights" :key="weight.date">
-            <p>{{ weight.weight }}</p>
-            <p>{{ weight.date }}</p>
+        <div class="row" v-for="weight in weights" :key="weight.date">
+            <div class="col">{{ weight.date }}</div>
+            <div class="col">{{ weight.weight }}</div>
         </div>
 
         <!-- Create add weight component -->
@@ -82,7 +88,7 @@ export default {
         </div>
         
         <!-- Create log out button -->
-        <button class="btn btn-outline-primary "  v-if="loggedIn" @click="logout">Logout</button>
+        <button class="btn btn-outline-primary " @click="logout"  v-if="loggedIn">Logout</button>
         
     </div>
 </template>

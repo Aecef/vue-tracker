@@ -34,8 +34,8 @@ export default {
 </script>
 
 <template>
-    <div class="dogsfed">
-        <h1>Dogs Fed</h1>
+    <div class="dogsfed text-center">
+        <h1>Login</h1>
         <Login @change="clickLogin" ref="login"/>
     </div>
 </template>
