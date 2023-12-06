@@ -23,7 +23,6 @@ export default {
                     break;
                 }
             }
-            // get the column
             let column = mealElement.parentElement;
             // Bring the meal element to the top of the column
             column.insertBefore(mealElement, column.firstChild);

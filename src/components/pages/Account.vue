@@ -61,6 +61,12 @@ export default {
             userData.forEach(entry => {
                 this.weights.push({weight: entry.weight, date: new Date(entry.date).toDateString()});
             });
+
+            // reorganize the weights by date
+            this.weights.sort((a, b) => {
+                return new Date(b.date) - new Date(a.date);
+            });
+            
             console.log("Weights Retrieved");
         },
         async logout() {
