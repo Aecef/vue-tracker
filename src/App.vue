@@ -1,6 +1,7 @@
 <script>
 import LinePlot from '@components/LinePlot.vue';
 import StaggeredGrid from '@components/StaggeredGrid.vue';
+import { collapseHamburger } from '@util/Bootstrap-Util';
 
 
     //.authWithPassword(import.meta.env.VITE_ADMIN_EMAIL, import.meta.env.VITE_ADMIN_PASSWORD);
@@ -19,7 +20,7 @@ export default {
       navPages: [
         { name: 'Home', path: '/home' },
         { name: 'About', path: '/about' },
-        { name: 'Dogs Fed', path: '/dogsfed' },
+        { name: 'Login', path: '/dogsfed' },
         { name: 'Decide', path: '/decide' }
       ],
     }
@@ -28,10 +29,12 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand bg-light">
     <div class="container-fluid">
-      <router-link :to="landing.path"></router-link> 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#nav_Header" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav_Header">
         <ul class="navbar-nav">
           <li class="nav-item" v-for="page in navPages" :key="page.name">
             <router-link :to="page.path" class="nav-link">{{ page.name }}</router-link>

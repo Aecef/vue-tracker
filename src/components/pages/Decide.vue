@@ -11,21 +11,30 @@ export default {
     },
     methods: {
         chooseMeal() {
+            //check if element already exists
+            let mealElement = document.getElementById('mealChoice');
+            if (mealElement != null) {
+                // Remove the element from the document
+                mealElement.remove();
+            }
+
             // Choose a random meal from the foodOptions
             const randomIndex = Math.floor(Math.random() * this.foodOptions.length);
             const meal = this.foodOptions[randomIndex];
-            let elements = document.getElementsByClassName("row");
-            let mealElement = 0;
-            // Get element with the meal name as the key
-            for (let i = 0; i < elements.length; i++) {
-                if (elements[i].innerText == meal) {
-                    mealElement = elements[i];
-                    break;
-                }
-            }
-            let column = mealElement.parentElement;
-            // Bring the meal element to the top of the column
-            column.insertBefore(mealElement, column.firstChild);
+
+            // Find element by id
+            foodColumn = document.getElementById('foodColumn');
+
+            // Create the meal element
+            mealElement = document.createElement('h2');
+            mealElement.id = 'mealChoice';
+            mealElement.innerHTML = meal;
+            mealElement.style.display='block';
+            mealElement.classList.add('col-4');
+            mealElement.classList.add('align-self-center');
+            
+            foodColumn.appendChild(mealElement);
+
             // Animate the meal element by changing the background color and the text color
             anime({
                 targets: mealElement,
@@ -45,17 +54,17 @@ export default {
         <h1>Decide</h1>
         <button class="btn btn-outline-primary " @click="chooseMeal">Choose Meal</button>
             <!-- Print all foodOptions -->
-        <div class="row" v-for="foodOption in foodOptions" :key="foodOption">
-                <h2 class="row">{{foodOption}}</h2>
+        <div class="container mt-4">
+            <div class="row justify-content-center" id="foodColumn"></div>
         </div>
     </div>
 </template>
 
 <style scoped>
-.row {
-    display: list-item;
+.col {
+    display: block;
 }
-.row:hover {
+.col:hover {
     background-color: #b6b6b6;
 }
 </style>
