@@ -1,8 +1,4 @@
 <script>
-import { onMounted } from 'vue';
-import HelloWorld from '@components/HelloWorld.vue'
-import TheWelcome from '@components/TheWelcome.vue'
-import pb from '@components/PocketBase'
 import LinePlot from '@components/LinePlot.vue';
 import StaggeredGrid from '@components/StaggeredGrid.vue';
 
@@ -12,8 +8,6 @@ import StaggeredGrid from '@components/StaggeredGrid.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    TheWelcome,
     LinePlot,
     StaggeredGrid
   },
@@ -25,7 +19,8 @@ export default {
       navPages: [
         { name: 'Home', path: '/home' },
         { name: 'About', path: '/about' },
-        { name: 'Dogs Fed', path: '/dogsfed' }
+        { name: 'Dogs Fed', path: '/dogsfed' },
+        { name: 'Decide', path: '/decide' }
       ],
     }
   }

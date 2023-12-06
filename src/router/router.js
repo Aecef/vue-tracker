@@ -6,6 +6,7 @@ const routes = [
   { path: "/About", component: () => import("@pages/About.vue") },
   { path: "/Account/:id", component: () => import("@pages/Account.vue") },
   { path: "/Error/:error", component: () => import("@pages/Error.vue") },
+  { path: "/Decide", component: () => import("@pages/Decide.vue") },
 ];
 
 const router = createRouter({
