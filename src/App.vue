@@ -15,10 +15,10 @@ export default {
   data() {
     return {
       landing: {
-        path: '/home',
+        path: '/',
       },
       navPages: [
-        { name: 'Home', path: '/home' },
+        { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
         { name: 'Login', path: '/dogsfed' },
         { name: 'Decide', path: '/decide' }
