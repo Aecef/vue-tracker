@@ -23,6 +23,6 @@ export default {
 <template>
     <div id="experience">
         <h1> Experience </h1> 
-        <button @click="downloadPDF(resume, 'AlecCleofeResume.pdf')"> Download My Resume </button>
+        <button @click="downloadPDF('/src/assets/AlecCleofeResume.pdf', 'AlecCleofeResume.pdf')"> Download My Resume </button>
     </div>
 </template>
