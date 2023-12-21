@@ -2,7 +2,6 @@
 @import '~bootstrap/dist/css/bootstrap.css';
 #app {
   max-width: 1920px;
-  padding: 0 0 0 0;
 
   font-weight: normal;
 
@@ -29,6 +28,14 @@ a,
   #app {
     display: grid;
     padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #app {
+    display: grid;
+    place-items: center;
+    width: 100%;
   }
 }
 

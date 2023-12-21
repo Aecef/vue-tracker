@@ -21,7 +21,8 @@ export default {
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
         { name: 'Login', path: '/dogsfed' },
-        { name: 'Decide', path: '/decide' }
+        { name: 'Decide', path: '/decide' },
+        
       ],
     }
   }

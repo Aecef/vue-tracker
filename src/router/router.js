@@ -7,6 +7,11 @@ const routes = [
   { path: "/Account/:id", component: () => import("@pages/Account.vue") },
   { path: "/Error/:error", component: () => import("@pages/Error.vue") },
   { path: "/Decide", component: () => import("@pages/Decide.vue") },
+  { path: "/Education", component: () => import("@pages/Education.vue") },
+  { path: "/Experience", component: () => import("@pages/Experience.vue") },
+  { path: "/Future", component: () => import("@pages/Future.vue") },
+  { path: "/Hobbies", component: () => import("@pages/Hobbies.vue") },
+  { path: "/Projects", component: () => import("@pages/Projects.vue") },
 ];
 
 const router = createRouter({

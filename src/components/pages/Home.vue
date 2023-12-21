@@ -43,43 +43,41 @@ export default{
 
 <template>
     <div class="home" id="home">
-        <div class="row pr-0">
-            <div class="col-md col-image">1</div>
-            <div class="col-md col-image">
+        <div class="row p-lr">
+            <div class="col-md col-image pl-"></div>
+            <a href="/#/experience" class="col-md col-exp col-choice">
                 <p class="grid-font">EXPERIENCE</p>    
-            </div>
-            <div class="col-md col-image">3</div>
+            </a>
+            <div class="col-md col-image"></div>
         </div>
-        <div class="row pr-0">
-            <div class="col-md col-image">
+        <div class="row p-lr">
+            <a href="/#/education" class="col-md col-iowa col-choice">
                     <p class="grid-font">EDUCATION</p>    
-            </div>
-            <div class="col-md align-items-middle">
+            </a>
+            <div class="col-md align-items-middle" id="col-title">
                 <h2 class="font-weight-bold grid-title"> Alec Cleofe </h2>
-                <p>The personal website of a <b>real</b> go getter.</p>
+                <p>Made by a <i>real</i> <b>go getter.</b> </p>
             </div>
-            <div class="col-md col-image">
+            <a href="/#/hobbies" class="col-md col-printer col-choice">
                 <p class="grid-font">HOBBIES</p>    
-            </div>
+            </a>
         </div>
-        <div class="row pr-0">
-            <div class="col-md col-image">7</div>
-            <div class="col-md col-image">
-                <p class="grid-font">GOALS</p>    
-            </div>
-            <div class="col-md col-image">9</div>
+        <div class="row p-lr">
+            <div class="col-md col-image"></div>
+            <a href="/#/projects" class="col-md col-choice col-p">
+                <p class="grid-font">PROJECTS</p>    
+            </a>
+            <div class="col-md col-image"></div>
         </div>
     </div>
 </template>
 
 <style scoped>
  /* Tags */
-
-
+ p {
+    font-size: 1.5rem;
+ }
  /* Classes */
-.home {
-    min-width: 776px;
-}
 
 .grid-font {
     font-size: 4rem;
@@ -87,29 +85,90 @@ export default{
     color: white;
     background-color: black;
     border: 1px;
-    border-radius: .3%;
+    border-radius: 2%;
+    box-shadow: ghostwhite 0px 0px 10px 0px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
 }
 .grid-title {
     font-size: 5rem;
     font-weight: bold;
 }
 
+.grid-title:hover {
+    color: #ff0000;
+    transition: 0.5s;
+}
+
 .col-image{
     background-image: url('@images/UoI.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
+    height: 100%;
 }
+
+.col-p{
+    background-image: url('@images/hitbox.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.col-exp{
+    background-image: url('@images/exp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.col-printer{
+    background-image: url('@images/printer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+.col-iowa {
+    background-image: url('@images/iowa.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+}
+
+#col-title {
+    border: 10px solid rgb(41, 41, 41) !important;
+    z-index: 1;
+    border-radius: 3%;
+}
+
+
 .col-md {
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(37, 37, 37);
     border-radius: 2%;
-    height: 416px;
+    height: 280px;
     display: grid;
     place-items: center;
     padding-left: 0%;
     padding-right: 0%;
+    transition: 0.5s;
+    margin: 5px 5px 5px 5px;
+}
+.col-choice:hover .col-image {
+    background-size: cover;
+
+    height: 500px;
+    transition: .5s;
 }
 
+.p-lr {
+    padding-right: 5%;
+    padding-left: 5%;
+}
 
  /* IDs */
  
