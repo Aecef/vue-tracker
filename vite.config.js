@@ -19,6 +19,7 @@ export default defineConfig({
       "@authorization": fileURLToPath(
         new URL("./src/components/authorization", import.meta.url)
       ),
+      "@images": fileURLToPath(new URL("./src/assets/images", import.meta.url)),
       "~bootstrap": fileURLToPath(
         new URL("./node_modules/bootstrap", import.meta.url)
       ),
