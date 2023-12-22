@@ -8,34 +8,6 @@ export default{
             homeElement: -1,
         }
     },
-    mounted() {
-       // this.createBlock();
-    },
-    methods: {
-        createBlock() {
-            
-            while (this.homeElement == -1) {
-                this.homeElement = document.getElementById('home');
-                console.log("Waiting for home element to load");
-            }
-            console.log(this.homeElement);
-            const block = document.createElement('div')
-            block.classList.add('block');
-            block.style.width = '100px';
-            block.style.height = '100px';
-            // Turn the square into a circle
-            block.style.borderRadius = '50%';
-            block.style.backgroundColor = 'red';
-            this.homeElement.appendChild(block);
-            
-            anime ({
-                targets: block,
-                background: '#b6b6b6',
-                duration: 1000,
-                easing: 'easeInOutQuad'
-            })
-        }
-    }
 }
 
 </script>
@@ -73,10 +45,13 @@ export default{
 </template>
 
 <style scoped>
+
  /* Tags */
+
  p {
     font-size: 1.5rem;
  }
+
  /* Classes */
 
 .grid-font {
@@ -103,52 +78,32 @@ export default{
     transition: 0.5s;
 }
 
-
-
 .col-image, #col-p, #col-exp, #col-printer, #col-iowa {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.col-image{
-    /* background-image: url('@images/UoI.jpg'); */
-}
 
-#col-p{
-    background-image: url('@images/hitbox.jpg');
-}
-#col-exp{
-    background-image: url('@images/exp.jpg');
-}
-#col-printer{
-    background-image: url('@images/printer.jpg');
-}
-#col-iowa {
-    background-image: url('@images/iowa.jpg');
-}
+#col-p { background-image: url('@images/hitbox.jpg'); }
+#col-exp { background-image: url('@images/exp.jpg'); }
+#col-printer { background-image: url('@images/printer.jpg'); }
+#col-iowa { background-image: url('@images/iowa.jpg'); }
 
 #col-title, .col-image {
-    /* border: 10px solid rgb(209, 209, 209) !important; */
-    /* border-radius: 3%; */
     z-index: 1;
-    /* background-color: rgba(240, 248, 255, 0.329); */
     backdrop-filter: blur(10px);
 }
 
-
 .col-md {
-    /* border: 1px solid rgb(37, 37, 37); */
-    /* border-radius: 2%; */
     height: 30vh;
     display: grid;
     place-items: center;
     padding-left: 0%;
     padding-right: 0%;
     transition: 0.5s;
-    /* margin: 5px 5px 5px 5px; */
 }
 
-#col-p:hover, #col-exp:hover, #col-printer:hover, #col-iowa:hover{
+#col-p:hover, #col-exp:hover, #col-printer:hover, #col-iowa:hover {
     transform: scale(1.1);
     z-index: 5;
     transition: .5s;
@@ -167,9 +122,5 @@ export default{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
-    
  }
- 
-
 </style>
