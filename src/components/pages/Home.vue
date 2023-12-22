@@ -27,7 +27,7 @@ export default{
             block.style.borderRadius = '50%';
             block.style.backgroundColor = 'red';
             this.homeElement.appendChild(block);
-
+            
             anime ({
                 targets: block,
                 background: '#b6b6b6',
@@ -55,11 +55,11 @@ export default{
                     <p class="grid-font">EDUCATION</p>    
             </a>
             <div class="col-md align-items-middle" id="col-title">
-                <h2 class="font-weight-bold grid-title"> Alec Cleofe </h2>
-                <p>Made by a <i>real</i> <b>go getter.</b> </p>
+                <h2 class="font-weight-bold grid-title text-light"> Alec Cleofe </h2>
+                <p class="text-light">Made by a <i>real</i> <b>go getter.</b> </p>
             </div>
             <a href="/#/hobbies" class="col-md col-printer col-choice">
-                <p class="grid-font">HOBBIES</p>    
+                <p class="grid-font">LEARNING</p>    
             </a>
         </div>
         <div class="row p-lr">
@@ -141,9 +141,11 @@ export default{
 }
 
 #col-title {
-    border: 10px solid rgb(41, 41, 41) !important;
+    border: 10px solid rgb(209, 209, 209) !important;
     z-index: 1;
     border-radius: 3%;
+    background-color: rgba(240, 248, 255, 0.329);
+    backdrop-filter: blur(10px);
 }
 
 
@@ -171,6 +173,15 @@ export default{
 }
 
  /* IDs */
+
+ #home {
+    z-index: 0;
+    background-image: url('@images/desk.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+ }
  
 
 </style>
