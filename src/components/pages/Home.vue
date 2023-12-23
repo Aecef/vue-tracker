@@ -28,7 +28,7 @@ export default{
             </a>
             <div class="col-md align-items-middle" id="col-title">
                 <h2 class="font-weight-bold grid-title text-light"> Alec Cleofe </h2>
-                <p class="text-light">Made by a <i>real</i> <b>go getter.</b> </p>
+                <p class="text-light" style="z-index: 1;">Made by a <i>real</i> <b>go getter.</b> </p>
             </div>
             <a href="/#/hobbies" class="col-md" id="col-printer">
                 <p class="grid-font">LEARNING</p>    
@@ -54,8 +54,20 @@ export default{
 
  /* Classes */
 
+ @media screen and (max-width: 400px) {
+    .grid-font {
+        font-size: 3rem;
+        transition: .5s;
+    }
+ }
+ @media screen and (min-width: 401px)  {
+    .grid-font {
+        font-size: 4rem;
+    }
+ }
+    
+
 .grid-font {
-    font-size: 4rem;
     font-weight: bold;
     color: white;
     background-color: black;
@@ -69,8 +81,10 @@ export default{
 
 }
 .grid-title {
+    z-index: 5;
     font-size: 5rem;
     font-weight: bold;
+    text-align: center;
 }
 
 .grid-title:hover {
@@ -89,13 +103,14 @@ export default{
 #col-printer { background-image: url('@images/printer.jpg'); }
 #col-iowa { background-image: url('@images/iowa.jpg'); }
 
-#col-title, .col-image {
-    z-index: 1;
+ #col-title, .col-image {
+    z-index: -1;
     backdrop-filter: blur(10px);
 }
 
+
 .col-md {
-    height: 30vh;
+    height: 100%;
     display: grid;
     place-items: center;
     padding-left: 0%;
@@ -114,6 +129,9 @@ export default{
     padding-left: 5%;
 }
 
+.row {
+    height: 33vh;
+}
  /* IDs */
 
  #home {
@@ -122,5 +140,7 @@ export default{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    overflow: hidden;
+    overflow-y: hidden;
  }
 </style>

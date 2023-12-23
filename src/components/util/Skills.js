@@ -1,0 +1,26 @@
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Node",
+  "Express",
+  "MongoDB",
+  "Python",
+  "Java",
+  "C++",
+  "C#",
+  "SQL",
+  "Git",
+  "GitHub",
+  "Heroku",
+  "Netlify",
+  "VS Code",
+  "Visual Studio",
+  "Clip Studio Paint",
+  "Unreal Engine",
+  "Unity",
+  "Blender",
+];
+
+export default skills;
