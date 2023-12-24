@@ -14,11 +14,8 @@ export default {
   },
   data() {
     return {
-      landing: {
-        path: '/',
-      },
+      landing: { name: 'Home', path: '/' },
       navPages: [
-        { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
         { name: 'Login', path: '/dogsfed' },
         { name: 'Decide', path: '/decide' },
@@ -30,15 +27,18 @@ export default {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand bg-light">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand" id="nav-main">
+    <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#nav_Header" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav_Header">
         <ul class="navbar-nav">
-          <li class="nav-item" v-for="page in navPages" :key="page.name">
-            <router-link :to="page.path" class="nav-link">{{ page.name }}</router-link>
+          <li class="nav-item" id="home-link">
+            <router-link :to="landing.path" class="nav-link" style="color: white;">{{ landing.name }}</router-link>
+          </li>
+          <li class="nav-item" v-for="page in navPages" :key="page.name" >
+            <router-link :to="page.path" class="nav-link" style="color: white;">{{ page.name }}</router-link>
           </li>
         </ul>
       </div>
@@ -46,6 +46,37 @@ export default {
   </nav>
   <router-view></router-view>
 </template>
+
+<style>
+
+
+
+
+#nav_Header {
+  height: 10vh;
+  box-shadow: 0px 0px 35px #343159;
+  z-index: 1;
+  /* padding-top: 10px; */
+  padding-left: 25px;
+
+}
+
+#nav-main {
+  background-color: black;
+  padding-top: 0%;
+}
+
+.nav-item {
+
+  font-family: "Jomhuria", Helvetica;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+#home-link {
+  font-size: 3rem;
+}
+</style>
 
 
 

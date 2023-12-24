@@ -61,7 +61,7 @@ const courses = [
   },
   {
     name: "Digital Arts",
-    softwares: ["MIDI", "Arduino IDE", "Scratch"],
+    softwares: ["Cycling '74: MAX 8", "Arduino IDE", "Scratch"],
     skills: ["Create Thinking", "Design", "Visual Scripting"],
   },
   {
