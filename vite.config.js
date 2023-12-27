@@ -21,6 +21,7 @@ export default defineConfig({
       ),
       "@images": fileURLToPath(new URL("./src/assets/images", import.meta.url)),
       "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
+      "@svg": fileURLToPath(new URL("./src/assets/svg", import.meta.url)),
       "~bootstrap": fileURLToPath(
         new URL("./node_modules/bootstrap", import.meta.url)
       ),

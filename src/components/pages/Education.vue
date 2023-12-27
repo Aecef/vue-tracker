@@ -43,13 +43,15 @@
   
   <style>
 
+
+
   .overlap {
     top: -135px !important;
   }
   .top-level {
     background-color: #000005;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
   }
@@ -59,15 +61,32 @@
     height: 1024px;
     overflow: hidden;
     position: relative;
-    width: 1440px;
+    /* width: inherit; */
   }
   
   .top-level .overlap {
-    height: 1665px;
+    height: 100%;
     left: -550px;
     position: absolute;
     top: -135px !important;
-    width: 3032px;
+  }
+
+  @media screen and (min-width: 1100px) {
+    .top-level .overlap {
+      width: 150%;
+    }    
+  }
+
+  @media screen and (min-width: 600) and (max-width: 1100px) {
+    .top-level .overlap {
+      width: 200%;
+    }    
+  }
+
+  @media screen and (max-width: 600px) {
+    .top-level .overlap {
+      width: 300%;
+    }    
   }
   
   .top-level .nav-instance {
@@ -182,14 +201,32 @@
   .top-level .text-wrapper-2 {
     color: #ffffff;
     font-family: "Karantina", Helvetica;
-    font-size: 193px;
     font-weight: 400;
-    left: 846px;
     letter-spacing: 0;
     line-height: normal;
     position: absolute;
+    width: fit-content;
     top: 261px;
-    width: 567px;
+  }
+  /* Change text-wrapper-2 to a smaller font if the screen is bigger than 400px */
+  @media screen and (min-width: 400px) {
+    .text-wrapper-2 {
+      left: 25%;
+      /* left: 846px;
+      top: 261px; */
+      font-size: 193PX;
+      transition: .25s;
+    }
+  }
+
+    @media screen and (max-width: 400px) {
+    .text-wrapper-2 {
+      left: 50%;
+      font-size: 5rem;
+      /* left: 600px;
+      top: 261px; */
+      transition: .25s;
+    }
   }
   
   .top-level .a-curious-software {

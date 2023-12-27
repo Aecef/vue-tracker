@@ -51,11 +51,22 @@ export default {
 
 
 
+nav {
+  z-index: 5;
+  box-shadow: 0px -10px 35px #343159;
+}
 
+#app {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#app-body {
+  width: 100%;
+}
 #nav_Header {
   height: 10vh;
-  box-shadow: 0px 0px 35px #343159;
-  z-index: 1;
+  /* box-shadow: 0px 0px 35px #343159; */
+  /* z-index: 1; */
   /* padding-top: 10px; */
   padding-left: 25px;
 
@@ -64,6 +75,8 @@ export default {
 #nav-main {
   background-color: black;
   padding-top: 0%;
+  width: inherit;
+
 }
 
 .nav-item {
