@@ -49,7 +49,9 @@ export default {
 
 <style>
 
-
+html {
+    overflow-x: hidden;
+}
 
 nav {
   z-index: 5;
