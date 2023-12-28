@@ -1,7 +1,13 @@
 
 <script>
+
+import PageLoader from '@components/pages/transition/PageLoader.vue';
+
 export default  {
     name: 'Future',
+    components: {
+        PageLoader,
+    },
     data() {
         return {
             futureElement: -1,
@@ -14,48 +20,57 @@ export default  {
 </script>
 
 <template>
+    <!-- <PageLoader /> -->
     <div id="future">
         
-        <div class="alec-wrapper">
+        <div class="alec-wrapper d-block" >
+            <h1 id="alec-cleofe">Alec Cleofe</h1>
+            <img id="nameChatBox" src="/src/assets/svg/home/Name_Chat.svg" alt="Chat Box With 'Alec Cleofe' placed inside'">
             <img class="frame" alt="Frame" src="/src/assets/images/home/alecHomeFrame.png"  />
             <img class="alec-BW" alt="Alec BW" src="/src/assets/images/alec_bw.png" />
         </div>
 
-        <h2 id="chatTXT">A curious <b>Software Engineer</b> equipped with a certification in <b>project management</b>. Looking to be an asset to creative, driven teams.</h2>
-        <img id="chatB" src="/src/assets/svg/home/Chat_Black.svg" alt="Landing Page Description Background">
-        <img id="chatW" src="/src/assets/svg/home/Chat_White.svg" alt="Landing Page Description Background Border">
-        <img id="bRight" src="/src/assets/svg/home/Back_Right.svg" alt="Right Portion of the black cutout">
-        <img id="bLeft" src="/src/assets/svg/home/Back_Left.svg" alt="Left Portion of the black cutout">
-        <img id="boltLeft" src="/src/assets/svg/home/Bolt_Left.svg" alt="Left Portion of the bolt background">
-        <img id="nameChatBox" src="/src/assets/svg/home/Name_Chat.svg" alt="Chat Box With 'Alec Cleofe' placed inside'">
-        <h1 id="alec-cleofe">Alec Cleofe</h1>
-
-        <div id="project-wrapper">
-            <a href="/#/projects">
-                <h1 class="brother-txt" id="project-text">Projects</h1>
-                <object class="sister-txt" id="projects" type="image/svg+xml" data="/src/assets/svg/home/Projects.svg"></object>
-            </a>
+        <div id="chat-wrapper" class="d-block">
+            <h2 id="chatTXT">A curious <b>Software Engineer</b> equipped with a certification in <b>project management</b>. Looking to be an asset to creative, driven teams.</h2>
+            <img id="chatB" src="/src/assets/svg/home/Chat_Black.svg" alt="Landing Page Description Background">
+            <img id="chatW" src="/src/assets/svg/home/Chat_White.svg" alt="Landing Page Description Background Border">
         </div>
 
+        <div id="bottom-menu" class="d-block">
+            <img id="bRight" src="/src/assets/svg/home/Back_Right.svg" alt="Right Portion of the black cutout">
+            <img id="bLeft" src="/src/assets/svg/home/Back_Left.svg" alt="Left Portion of the black cutout">
+            <img id="boltLeft" src="/src/assets/svg/home/Bolt_Left.svg" alt="Left Portion of the bolt background">
 
-        <div id="experience-wrapper">
-            <a href="/#/experience">
-                <h1 class="brother-txt" id="experience-text">Experience</h1>
-                <object class="sister-txt" id="experience" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
-            </a>
+            <div id="project-wrapper">
+                <a href="/#/projects">
+                    <h1 class="brother-txt" id="project-text">Projects</h1>
+                    <!-- <img class="sister-txt" id="projects" src="/src/assets/svg/home/Projects.svg" alt="Projects Txt Box Holder"> -->
+                    <object class="sister-txt" id="projects" type="image/svg+xml" data="/src/assets/svg/home/Projects.svg"></object>
+                </a>
+            </div>
+
+
+            <div id="experience-wrapper">
+                <a href="/#/experience">
+                    <h1 class="brother-txt" id="experience-text">Experience</h1>
+                    <!-- <img class="sister-txt" id="experience" src="/src/assets/svg/home/Experience.svg" alt="Experience Txt Box Holder"> -->
+                    <object class="sister-txt" id="experience" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
+                </a>
+            </div>
+
+
+            <div id="education-wrapper">
+                <a href="/#/education">
+                    <h1 class="brother-txt" id="education-text">Education</h1>
+                    <!-- <img class="sister-txt" id="education" src="/src/assets/svg/home/Education.svg" alt="Education Txt Box Holder"> -->
+                    <object class="sister-txt" id="education" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
+                </a>
+            </div>
+
+            <svg id="svg-rect">
+                <rect id="bottom-rect" />
+            </svg> 
         </div>
-
-
-        <div id="education-wrapper">
-            <a href="/#/education">
-                <h1 class="brother-txt" id="education-text">Education</h1>
-                <object class="sister-txt" id="education" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
-            </a>
-        </div>
-
-        <svg id="svg-rect">
-            <rect id="bottom-rect" />
-        </svg> 
 
 
         
@@ -64,6 +79,28 @@ export default  {
 
 
 <style scoped>
+
+@media screen and (min-width: 700px) {
+    #future {
+        /* overflow-y: hidden; */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #future {
+        overflow-y: scroll;
+    }
+}
+
+
+.d-block {
+    z-index: 5;
+    border: 5px solid blue;
+}
+
+#bottolm-menu {
+    position: relative !important;
+}
 
 #bottom-rect {
     position: absolute;
@@ -88,11 +125,15 @@ export default  {
 
 }
 
+
+
+
 #future {
     position: relative;
     width: 100%;
     height: 100vh;
     background-color: #FF2323;
+    overflow-x: hidden;
 
 }
 
@@ -103,7 +144,7 @@ export default  {
     font-weight: 700;
     letter-spacing: .04em;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
     left: 720px;
     top: 113px;
     color: rgb(0, 0, 0);
@@ -111,10 +152,10 @@ export default  {
 }
 
 #nameChatBox {
-    position: absolute;
+    position: relative;
     z-index: 2;
-    left: -305px;
-    top: -667px;
+    left: -149px;
+    top: -547px;
     scale: .18;
 }
 
@@ -132,9 +173,6 @@ export default  {
     z-index: 4;
 }
 
-#chatB {
-    z-index: 1;
-}
 
 #projects, #education, #experience, #bRight, #bLeft, #boltLeft {
     position: absolute;
@@ -228,6 +266,7 @@ export default  {
     top: 531px;
     left: 1421px;
     width: 50%;
+    /* width: 175.894px; */
     bottom: 0px;
     transform: rotate(3deg);
 }
@@ -240,12 +279,14 @@ export default  {
 
 #chatB {
     left: 710px;
-    z-index: 2;
+    z-index: 1;
+    top: 0px;
 }
 
 #chatW {
     left: 725px;
-    z-index: 1;
+    z-index: 0;
+    top: 0px;
 }
 
 
@@ -278,6 +319,12 @@ export default  {
     scale: .8;
     transition: .5s;
   }
+
+  .alec-wrapper {
+    overflow-x: hidden;
+  }
+
+
 
 
 

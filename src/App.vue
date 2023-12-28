@@ -32,7 +32,7 @@ export default {
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#nav_Header" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="nav_Header">
+      <div id="nav_Header">
         <ul class="navbar-nav">
           <li class="nav-item" id="home-link">
             <router-link :to="landing.path" class="nav-link" style="color: white;">{{ landing.name }}</router-link>

@@ -1,5 +1,5 @@
 @import './base.css';
-@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap/dist/css/bootstrap.css'; 
 
 @tailwind base;
 @tailwind components;
@@ -22,7 +22,7 @@ a,
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: hsla(0, 0%, 53%, 0.2);
   }
 }
 
@@ -44,6 +44,8 @@ a,
     width: 100%;
   }
 }
+
+
 
 /* have the navbar class change to fit its contents on a smaller screen */
 

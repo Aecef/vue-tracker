@@ -1,280 +1,329 @@
 
+<script>
+
+import PageLoader from '@components/pages/transition/PageLoader.vue';
+
+export default  {
+    name: 'Education',
+    components: {
+        PageLoader,
+    },
+    data() {
+        return {
+            futureElement: -1,
+            }
+        }
+    }
+</script>
 
 <template>
-    <div id="education" class="top-level">
-      <div class="div" style="width: 100%;">
-        <div class="overlap">
-          <div class="rectangle"></div> 
-          <p class="text-wrapper">Looking to be an asset to any creative,</p>
-          <div class="creative-team"> driven team.</div>
-          <div class="rectangle-2"></div>
-          <div class="rectangle-3"> </div>
-          <img class="polygon" alt="Polygon" />
-          <img class="polygon-2" alt="Polygon" />
-          <img class="polygon-3" alt="Polygon" />
-          <img class="polygon-4" alt="Polygon" />
-          <div class="text-wrapper-2">Alec Cleofe</div>
-          <p class="a-curious-software">
-            <span class="span">A curious </span>
-            <span class="text-wrapper-3">Software Engineer</span>
-            <span class="span"> equipped </span>
-          </p>
-          <p class="with-a-certification">
-            <span class="span"> with a certification in</span>
-            <span class="text-wrapper-4">&nbsp;</span>
-            <span class="text-wrapper-3">project management.</span>
-          </p>
-          <div class="alec-wrapper">
+    <!-- <PageLoader /> -->
+    <div id="future">
+      <div class="row ">
+        <div class="col-sm-2"></div>
+        <div id="chat-frame" class="col-sm-auto">
             <img class="frame" alt="Frame" src="/src/assets/images/home/alecHomeFrame.png"  />
             <img class="alec-BW" alt="Alec BW" src="/src/assets/images/alec_bw.png" />
-          </div>
         </div>
-        <img class="rectangle-4" alt="Rectangle" />
+
+        <div class="alec-wrapper col-sm-auto" >
+            <!-- <h1 id="alec-cleofe">Alec Cleofe</h1> -->
+            <!-- <img id="nameChatBox" src="/src/assets/svg/home/Name_Chat.svg" alt="Chat Box With 'Alec Cleofe' placed inside'"> -->
+        </div>
+
+        <div id="chat-wrapper" class="col-sm-auto">
+            <h2 id="chatTXT">A curious <b>Software Engineer</b> equipped with a certification in <b>project management</b>. Looking to be an asset to creative, driven teams.</h2>
+            <img id="chatB" src="/src/assets/svg/home/Chat_Black.svg" alt="Landing Page Description Background">
+            <img id="chatW" src="/src/assets/svg/home/Chat_White.svg" alt="Landing Page Description Background Border">
+        </div>
+        <div class="col-sm-2"></div>
+
       </div>
+
+
+        <div id="bottom-menu" class="row">
+          <div class="col">
+            <img id="bLeft"  src="/src/assets/svg/home/Back_Left.svg" alt="Left Portion of the black cutout">
+            <img id="boltLeft" src="/src/assets/svg/home/Bolt_Left.svg" alt="Left Portion of the bolt background">
+          </div>
+          <div class="col">
+            <img id="bRight" src="/src/assets/svg/home/Back_Right.svg" alt="Right Portion of the black cutout">
+                <div id="project-wrapper">
+                    <a href="/#/projects">
+                        <h1 class="brother-txt" id="project-text">Projects</h1>
+                        <!-- <img class="sister-txt" id="projects" src="/src/assets/svg/home/Projects.svg" alt="Projects Txt Box Holder"> -->
+                        <object class="sister-txt" id="projects" type="image/svg+xml" data="/src/assets/svg/home/Projects.svg"></object>
+                    </a>
+                </div>
+
+
+                <div id="experience-wrapper">
+                    <a href="/#/experience">
+                        <h1 class="brother-txt" id="experience-text">Experience</h1>
+                        <!-- <img class="sister-txt" id="experience" src="/src/assets/svg/home/Experience.svg" alt="Experience Txt Box Holder"> -->
+                        <object class="sister-txt" id="experience" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
+                    </a>
+                </div>
+
+
+                <div id="education-wrapper">
+                    <a href="/#/education">
+                        <h1 class="brother-txt" id="education-text">Education</h1>
+                        <!-- <img class="sister-txt" id="education" src="/src/assets/svg/home/Education.svg" alt="Education Txt Box Holder"> -->
+                        <object class="sister-txt" id="education" type="image/svg+xml" data="/src/assets/svg/home/Experience.svg"></object>
+                    </a>
+                </div>
+
+          </div>
+
+
+            <svg id="svg-rect">
+                <rect id="bottom-rect" />
+            </svg> 
+        </div>
+
+
+        
     </div>
-  </template>
-  
-  <script>
-  
-  export default {
-    name: "Education",
-  };
-  </script>
-  
-  <style>
+</template>
 
 
+<style scoped>
 
-  .overlap {
-    top: -135px !important;
+@media screen and (max-width: 1000px) {
+
+  #chatB, #chatW {
+   visibility: hidden;
+   transition: .25s;
+  }  
+}
+
+@media screen and (min-width: 1000px) {
+  .frame {
+    top: 10%;
+    left: 4%;
+    transition: .25s;
   }
-  .top-level {
-    background-color: #000005;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+
+  .alec-BW {
+    top: -3.5%;
+    left: 7.25%;
+    transition: .25s;
+  }
+
+  #chatTXT {
+    padding-right: 6%;
+    padding-top: 27.5%;
+    transition: .25s;
   }
   
-  .top-level .div {
-    background-color: #000005;
-    height: 1024px;
-    overflow: hidden;
+}
+
+
+.d-block, .d-inline {
+    z-index: 5;
+    border: 5px solid blue;
+}
+
+
+#bottom-rect {
     position: relative;
-    /* width: inherit; */
-  }
-  
-  .top-level .overlap {
-    height: 100%;
-    left: -550px;
-    position: absolute;
-    top: -135px !important;
-  }
+    width: inherit;
+    height: 30px;
+    top: 1000px;
+    fill: black;
+    stroke-width: 0;
+}
+#svg-rect {
+    position: relative;
+    width: inherit;
+    height: 30px;
+    top: 926px;
+    left: 0;
+    z-index: 0;
+}
 
-  @media screen and (min-width: 1100px) {
-    .top-level .overlap {
-      width: 150%;
-    }    
-  }
 
-  @media screen and (min-width: 600) and (max-width: 1100px) {
-    .top-level .overlap {
-      width: 200%;
-    }    
-  }
 
-  @media screen and (max-width: 600px) {
-    .top-level .overlap {
-      width: 300%;
-    }    
-  }
-  
-  .top-level .nav-instance {
-    left: 701px !important;
-    position: absolute !important;
-    top: 0 !important;
-  }
-  
-  .top-level .design-component-instance-node {
-    background-image: url(./nav-bar.svg) !important;
-  }
-  
-  .top-level .rectangle {
-    background-color: #ff2323;
-    height: 100%;
+
+#future {
+    position: relative;
     width: 100%;
-    position: absolute;
-  }
-  
-  .top-level .text-wrapper {
-    color: #ffffff;
-    font-family: "Karantina", Helvetica;
-    font-size: 48px;
-    font-weight: 300;
-    left: 1004px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 618px;
-    width: 556px;
-  }
-  
-  .top-level .creative-team {
-    color: #ffffff;
-    font-family: "Karantina", Helvetica;
-    font-size: 48px;
-    font-weight: 300;
-    left: 1072px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 668px;
-    width: 556px;
-  }
-  
-  .top-level .rectangle-2 {
-    background-color: #0a0a0a;
-    border: 9px solid;
-    border-color: #000000;
-    height: 643px;
-    left: 1509px;
-    position: absolute;
-    top: 741px;
-    transform: rotate(-25.48deg);
-    width: 1455px;
-  }
-  
-  .top-level .rectangle-3 {
-    background-color: #0a0a0a;
-    border: 9px solid;
-    border-color: #000000;
-    height: 643px;
-    left: 56px;
-    position: absolute;
-    top: 588px;
-    transform: rotate(33.93deg);
-    width: 1455px;
-  }
-  
-  .top-level .polygon {
-    height: 917px;
-    left: 701px;
-    position: absolute;
-    top: 32px;
-    width: 662px;
-  }
-  
-  .top-level .polygon-2 {
-    height: 831px;
-    left: 701px;
-    position: absolute;
-    top: 193px;
-    width: 576px;
-  }
-  
-  .top-level .polygon-3 {
-    height: 918px;
-    left: 701px;
-    position: absolute;
-    top: 100px;
-    width: 628px;
-  }
-  
-  .top-level .polygon-4 {
-    height: 455px;
-    left: 1723px;
-    position: absolute;
-    top: 569px;
-    width: 418px;
-  }
-  
-  .top-level .frame {
-    height: 366px;
-    left: 1494px;
-    position: absolute;
-    top: 383px;
-    width: 435px;
+    height: 100vh;
+    background-color: #FF2323;
+    overflow-x: hidden;
 
-    transition: .5s;
-  }
-  
-  .top-level .text-wrapper-2 {
-    color: #ffffff;
-    font-family: "Karantina", Helvetica;
-    font-weight: 400;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    width: fit-content;
-    top: 261px;
-  }
-  /* Change text-wrapper-2 to a smaller font if the screen is bigger than 400px */
-  @media screen and (min-width: 400px) {
-    .text-wrapper-2 {
-      left: 25%;
-      /* left: 846px;
-      top: 261px; */
-      font-size: 193PX;
-      transition: .25s;
-    }
-  }
+}
 
-    @media screen and (max-width: 400px) {
-    .text-wrapper-2 {
-      left: 50%;
-      font-size: 5rem;
-      /* left: 600px;
-      top: 261px; */
-      transition: .25s;
-    }
-  }
-  
-  .top-level .a-curious-software {
-    color: #ffffff;
+
+#alec-cleofe {
     font-family: "Karantina", Helvetica;
-    font-size: 48px;
-    font-weight: 400;
-    left: 865px;
-    letter-spacing: 0;
-    line-height: normal;
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: .04em;
     position: absolute;
-    top: 511px;
-    width: 556px;
-  }
-  
-  .top-level .span {
+    z-index: 3;
+    color: rgb(0, 0, 0);
+}
+
+#nameChatBox {
+    position: relative;
+    z-index: 2;
+
+}
+
+#chatTXT {
+    font-family: "Karantina", Helvetica;
+    font-size: 2.8rem;
     font-weight: 300;
-  }
-  
-  .top-level .text-wrapper-3 {
+    font-style: italic;
+    letter-spacing: .02em;
+    position: absolute;
+
+    display: grid;
+    place-items: center;
+
+    padding-left: 11%;
+    padding-top: 6.5%;
+
+    color: white;
+    z-index: 4;
+}
+
+
+#projects, #education, #experience, #boltLeft {
+    position: absolute;
+    z-index: 0;
+}
+.brother-txt:hover + .sister-txt {
+    cursor: pointer;
+    scale: 1.1;
+    transition: .15s; 
+}
+
+.brother-txt:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: .15s; 
+}
+
+
+#project-text, #education-text, #experience-text {
     font-family: "Karantina", Helvetica;
     font-weight: 700;
-  }
-  
-  .top-level .with-a-certification {
-    color: #ffffff;
-    font-family: "Karantina", Helvetica;
-    font-size: 48px;
-    font-weight: 400;
-    left: 925px;
-    letter-spacing: 0;
-    line-height: normal;
+    color: white;
     position: absolute;
-    top: 565px;
-    width: 617px;
-  }
-  
-  .top-level .text-wrapper-4 {
-    font-family: "Karantina", Helvetica;
-  }
-  
-  .top-level .alec-BW {
+    z-index: 2;
+}
+
+
+#project-text {
+    font-size: 56px;
+    left: 1350px;
+    top: 675px;
+    transform: rotate(-23deg);
+    letter-spacing: .5em;
+}
+
+#experience-text{
+    font-size: 1.8rem;
+    left: 1426px;
+    top: 767px;
+    transform: rotate(-20deg);
+    letter-spacing: .4em;
+}
+
+#education-text {
+    font-size: 1.7rem;
+    left: 1470px;
+    top: 820px;
+    transform: rotate(-18deg);
+    letter-spacing: .3em;
+}
+
+#bRight {
+  top: -32.5px;
+  left: 20px;
+  scale: .95;
+  width: 110%;
+}
+
+#bLeft {
+  top: -80px;
+  left: 5%;
+  scale: 1.25;
+}
+
+#boltLeft {
+    top: 250px;
+    left: -313px;
+    height: 75%;   
+    bottom: 0px;
+    z-index:0;
+}
+
+#projects {
+    top: 448px;
+    left: 1043px;
+    width: 50%;
+    bottom: 0px;
+}
+
+#experience {
+    top: 482px;
+    left: 1348px;
+    width: 50%;
+    bottom: 0px;
+    transform: rotate(.5deg);
+}
+
+#education {
+    top: 531px;
+    left: 1421px;
+    width: 50%;
+    /* width: 175.894px; */
+    bottom: 0px;
+    transform: rotate(3deg);
+}
+
+#chatB, #chatW {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+}
+
+#chatB {
+    left: 42%;
+    z-index: 1;
+}
+
+#chatW {
+    left: 42.5%;
+    z-index: 0;
+}
+#chatB, #chatW {
+  top: -20%;
+}
+
+
+.alec-BW {
     height: 410px;
-    left: 1518px;
+    left: 21.25%;
+    top: 4.5%;
     object-fit: cover;
     position: absolute;
-    top: 318px;
     width: 389px;
+    z-index: 1;
+    transition: .5s;
+  }
+
+.frame {
+    height: 366px;
+    left: 16%;
+    top: 29%;
+    position: relative;
+    width: 435px;
+    z-index: 1;
     transition: .5s;
   }
 
@@ -286,14 +335,14 @@
     scale: .8;
     transition: .5s;
   }
-  
-  .top-level .rectangle-4 {
-    height: 410px;
-    left: -1696px;
-    position: absolute;
-    top: 830px;
-    width: 389px;
+
+  .alec-wrapper {
+    overflow-x: hidden;
   }
-  
-  </style>
-  
+
+
+
+
+
+
+</style>
